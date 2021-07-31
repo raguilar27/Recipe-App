@@ -5,9 +5,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Recipe App</title>
     <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
     <script src="script.js" defer></script>
   </head>
   <body>
-    <h1>Recipe App</h1>
+    <div class="mobile-container">
+      <header>
+        <input type="text" />
+        <button id="search"><i class="fas fa-search"></i></button>
+      </header>
+      <div class="fav-container">
+        <h3>Favorite Meals</h3>
+        <ul class="fav-meals">
+          <li>
+            <img
+              src="https://www.themealdb.com//images//media//meals//vqpwrv1511723001.jpg"
+              alt="Chelsea Buns"
+            /><span>Chelsea Buns</span>
+          </li>
+          <li>
+            <img
+              src="https://www.themealdb.com/images/ingredients/Lime-Small.png"
+              alt="Lime"
+            /><span>Lime</span>
+          </li>
+          <li>
+            <img
+              src="https://www.themealdb.com/images/media/meals/llcbn01574260722.jpg/preview"
+              alt="Pasta"
+            /><span>Pasta</span>
+          </li>
+        </ul>
+      </div>
+      <div class="meals">
+        <span class="randon">Random Recipe</span>
+        <div class="meal">
+          <div class="meal-header">
+            <img
+              src="https://www.themealdb.com//images//media//meals//qysyss1511558054.jpg"
+              alt="Steak Pie"
+            />
+          </div>
+          <div class="meal-body">
+            <h4>Vegtables</h4>
+            <button>
+              <i class="far fa-heart"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
