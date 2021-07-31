@@ -1,7 +1,106 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
 * {
   box-sizing: border-box;
 }
 
 body {
-  font-family: sans-serif;
+  background: #757f9a;
+  background: -webkit-linear-gradient(to right, #d7dde8, #757f9a);
+  background: linear-gradient(to right, #d7dde8, #757f9a);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  min-height: 100vh;
+}
+
+img {
+  max-width: 100%;
+}
+
+.mobile-container {
+  background-color: white;
+  box-shadow: 0 0 10px 2px #3333331a;
+  border-radius: 3px;
+  overflow: hidden;
+  width: 400px;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+header input {
+  background-color: #eee;
+  border: none;
+  border-radius: 3px;
+  padding: 0.5rem 1rem;
+}
+
+header button {
+  background-color: transparent;
+  border: none;
+  color: #aaa;
+  font-size: 1.5rem;
+  margin-left: 10px;
+}
+
+.fav-container {
+  background-color: #ebe69f;
+  padding: 1rem;
+  text-align: center;
+}
+
+.fav-meals {
+  list-style-type: none;
+  white-space: nowrap;
+  overflow-x: scroll;
+  overflow-y: hide;
+  justify-content: center;
+  padding: 0;
+}
+
+/* width */
+.fav-meals::-webkit-scrollbar {
+  height: 5px;
+}
+
+/* Track */
+.fav-meals::-webkit-scrollbar-track {
+  background: #ebe69f;
+}
+
+/* Handle */
+.fav-meals::-webkit-scrollbar-thumb {
+  background: #f0edc3;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+.fav-meals::-webkit-scrollbar-thumb:hover {
+  background: #f0edc3;
+}
+
+.fav-meals li {
+  display: inline-block;
+  margin: 5px;
+}
+
+.fav-meals li img {
+  display: block;
+  border: solid #ffffffff;
+  border-radius: 50%;
+  box-shadow: 0 0 10px 2px #3333331a;
+  object-fit: cover;
+  height: 75px;
+  width: 75px;
+}
+
+.fav-meals li span {
+  font-size: 0.9rem;
 }
