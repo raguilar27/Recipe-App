@@ -2,6 +2,9 @@ const mealsEl = document.getElementById("meals");
 const favoriteContainer = document.getElementById("fav-meals");
 const searchTerm = document.getElementById("search-term");
 const searchBtn = document.getElementById("search");
+const mealPopup = document.getElementById("meal-popup");
+const closePopupBtn = document.getElementById("close-popup");
+const mealInfoEl = document.getElementById("meal-info");
 
 getRandomMeal();
 fetchFavMeals();
@@ -44,19 +47,19 @@ function addMeal(mealData, random = false) {
   meal.classList.add("meal");
 
   meal.innerHTML = ` 
-          <div class="meal-header">
-            ${random ? `<span class="random">Random Recipe</span>` : ""}
-            <img
-              src="${mealData.strMealThumb}"
-              alt="${mealData.strMeal}"
-            />
-          </div>
-          <div class="meal-body">
-            <h4>${mealData.strMeal}</h4>
-            <button class="fav-btn">
-              <i class="fas fa-heart"></i>
-            </button>
-          </div>`;
+    <div class="meal-header">
+      ${random ? `<span class="random">Random Recipe</span>` : ""}
+      <img
+        src="${mealData.strMealThumb}"
+        alt="${mealData.strMeal}"
+      />
+    </div>
+    <div class="meal-body">
+      <h4>${mealData.strMeal}</h4>
+      <button class="fav-btn">
+        <i class="fas fa-heart"></i>
+      </button>
+    </div>`;
 
   const btn = meal.querySelector(".meal-body .fav-btn");
 
@@ -70,6 +73,10 @@ function addMeal(mealData, random = false) {
     }
 
     fetchFavMeals();
+  });
+
+  meal.addEventListener("click", () => {
+    showMealInfo(mealData);
   });
 
   mealsEl.appendChild(meal);
@@ -131,6 +138,34 @@ function addMealFav(mealData) {
   favoriteContainer.appendChild(favMeal);
 }
 
+function showMealInfo(mealData) {
+  //clean up html
+  mealInfoEl.innerHTML = "";
+
+  //update meal info
+  const mealEl = document.createElement("div");
+
+  mealEl.innerHTML = `
+    <h1>${mealData.strMeal}</h1>
+    <img
+      src="${mealData.strMealThumb}"
+      alt="${mealData.strMeal}"
+    />
+    <p>
+      ${mealData.strInstructions}
+    </p>
+    <ul>
+      <li>ing 1 / measure</li>
+      <li>ing 2 / measure</li>
+      <li>ing 3 / measure</li>
+    </ul>`;
+
+  mealInfoEl.appendChild(mealEl);
+
+  //show the popup
+  mealPopup.classList.remove("hidden");
+}
+
 searchBtn.addEventListener("click", async () => {
   //clean container
   mealsEl.innerHTML = "";
@@ -144,4 +179,8 @@ searchBtn.addEventListener("click", async () => {
       addMeal(meal);
     });
   }
+});
+
+closePopupBtn.addEventListener("click", () => {
+  mealPopup.classList.add("hidden");
 });
