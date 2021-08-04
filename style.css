@@ -88,6 +88,7 @@ header button {
 }
 
 .fav-meals li {
+  cursor: pointer;
   display: inline-block;
   position: relative;
   margin: 5px;
@@ -227,12 +228,5 @@ header button {
 
 .meal-info img {
   object-fit: cover;
-  height: 300px;
   width: 100%;
-}
-
-.meal-info p {
-}
-
-.meal-info li {
 }
